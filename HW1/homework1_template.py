@@ -4,28 +4,34 @@ def problem_1a (A, B):
     return A + B
 
 def problem_1b (A, B, C):
-    return ...
+    return A*B + np.transpose(C)
 
 def problem_1c (x, y):
-    return ...
+    return np.transpose(x).dot(y)
 
 def problem_1d (A, j):
-    return ...
+    return np.sum(A[::2,j])
 
 def problem_1e (A, c, d):
-    return ...
+    return np.mean(A[np.logical_and(A >= c, A <= d)])
 
 def problem_1f (x, k, m, s):
-    return ...
+    #x = column vector of length n
+    #k = int
+    #m,s= positive scalars
+    #return n*k matrix
+    z = np.ones(np.shape(x))
+    I = np.identity(np.shape(x)[0])
+    return np.random.multivariate_normal((x + m*z), s*I, k, tol=1).transpose()
 
 def problem_1g (A):
-    return ...
+    return np.apply_along_axis(np.random.permutation, 0, A)
 
 def problem_1h (x):
-    return ...
+    return ((x - np.mean(x))/np.std(x))
 
 def problem_1i (x, k):
-    return ...
+    return np.reshape(np.repeat(x,k),(np.shape(x)[0], k))
 
 
 
